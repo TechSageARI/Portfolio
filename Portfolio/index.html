@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arijit Saha | Portfolio</title>
+<meta name="description" content="Arijit Saha, B.Tech CSE student. Projects, skills and contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <b>Arijit Saha</b>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <svg class="map" id="map" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+  <div class="pin" id="pin"><i></i>Unmapped so far</div>
+  <div class="wrap">
+    <p class="hi">Hi, I'm</p>
+    <h1>Arijit<br>Saha</h1>
+    <p class="sub">Computer science student building software that helps people find places most maps skip.</p>
+    <div class="btns">
+      <a class="btn solid" href="#projects">See my work</a>
+      <a class="btn line" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>About me</h2>
+      <p>I'm a B.Tech Computer Science and Engineering student from West Bengal, India. I like turning an idea into something that runs, and I'm learning something new with every project I finish.</p>
+      <p>I work with Python, Java and C, build web pages with HTML and CSS, and use Flask and SQLite for the backend side. I also serve as a Campus Mantri for GeeksforGeeks.</p>
+    </div>
+    <dl class="facts">
+      <dt>Studying</dt><dd>B.Tech CSE, 2024 to 2028</dd>
+      <dt>College</dt><dd>Greater Kolkata College of Engineering and Management</dd>
+      <dt>Based in</dt><dd>West Bengal, India</dd>
+      <dt>Code lives at</dt><dd>github.com/TechSageARI</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <article class="feature">
+      <h3>Uncharted</h3>
+      <p>A platform for discovering undiscovered places. Travellers find hidden spots that big travel apps miss, and locals get a way to share what makes their area worth visiting.</p>
+      <div class="tags"><span>Python</span><span>HTML</span><span>CSS</span></div>
+      <a class="btn" href="https://github.com/TechSageARI">View on GitHub</a>
+    </article>
+    <div class="next"><b>More coming soon.</b> I'm working on new projects and will add them here as they ship.</div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div>
+        <h3>Languages</h3>
+        <ul><li>Python</li><li>Java</li><li>C</li><li>HTML and CSS</li></ul>
+      </div>
+      <div>
+        <h3>Computer science</h3>
+        <ul><li>Data structures and algorithms</li><li>Object-oriented programming</li><li>Database management (DBMS)</li></ul>
+      </div>
+      <div>
+        <h3>Tools</h3>
+        <ul><li>Git and GitHub</li><li>VS Code</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="now">
+        <h3>B.Tech, Computer Science and Engineering</h3>
+        <p>Greater Kolkata College of Engineering and Management, 2024 to 2028</p>
+      </div>
+      <div>
+        <h3>Higher Secondary, Science</h3>
+        <p>Raghunathganj High School, completed 2022</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Let's build something</h2>
+      <p>Have an idea, an internship, or a project to collaborate on? Send me a message.</p>
+      <div class="btns">
+        <a class="btn solid" href="mailto:arijitsaha1325@gmail.com">Email me</a>
+        <a class="btn line" href="https://github.com/TechSageARI">GitHub</a>
+        <a class="btn line" href="https://www.linkedin.com/in/arijit-saha-261350280/">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Arijit Saha</div>
+</footer>
+
+<script>
+// Draw wavy contour lines like a topographic map
+(function(){
+  var svg=document.getElementById("map"), cx=720, cy=330, html="";
+  for(var i=0;i<14;i++){
+    var r=40+i*42, seed=i*0.55, d="";
+    for(var k=0;k<=120;k++){
+      var a=k/120*Math.PI*2;
+      var rr=r*(1+0.13*Math.sin(3*a+seed)+0.07*Math.sin(5*a+seed*2)+0.04*Math.sin(2*a-seed));
+      var x=cx+rr*Math.cos(a)*1.25, y=cy+rr*Math.sin(a)*0.9;
+      d+=(k?"L":"M")+x.toFixed(1)+" "+y.toFixed(1);
+    }
+    html+='<path pathLength="1" d="'+d+'Z" style="animation-delay:'+(i*0.12).toFixed(2)+'s"/>';
+  }
+  svg.innerHTML=html;
+  var pin=document.getElementById("pin");
+  pin.style.left="62%"; pin.style.top="44%";
+})();
+</script>
+</body>
+</html>
